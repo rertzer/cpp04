@@ -1,44 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rertzer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:47:19 by rertzer           #+#    #+#             */
-/*   Updated: 2023/05/06 11:49:50 by rertzer          ###   ########.fr       */
+/*   Updated: 2023/05/06 10:36:39 by rertzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Cat.hpp"
 
-Dog::Dog(void): Animal("dog")
+Cat::Cat(void)
 {
-	std::cout << "Dog default constructor called\n";
+	std::cout << "Cat default constructor called\n";
+	cortex = new Brain();
 }
 
-Dog::Dog(const Dog & src)
+Cat::Cat(const Cat & src)
 {
-	std::cout << "Dog copy constructor called\n";
+	std::cout << "Cat copy constructor called\n";
 	*this = src;
 }
 
-Dog::~Dog(void)
+Cat::~Cat(void)
 {
-	std::cout << "Dog destructor called\n";
+	std::cout << "Cat destructor called\n";
+	delete cortex;
 }
 
-Dog	& Dog::operator=(Dog const & rhs)
+Cat	& Cat::operator=(Cat const & rhs)
 {
-	std::cout << "Dog assignment operator called\n";
+	std::cout << "Cat assignment operator called\n";
 	if (this != &rhs)
 	{
 		type = rhs.type;
+		cortex = new Brain(*rhs.cortex);
 	}
 	return (*this);
 }
 
-void	Dog::makeSound(void) const
+void	Cat::makeSound(void) const
 {
-	std::cout << "Ouaff! Ouaff!\n";
+	std::cout << "Miaouuuuuuuuuuuuu\n";
+}
+
+Brain	*Cat::getBrain(void) const
+{
+	return cortex;
 }

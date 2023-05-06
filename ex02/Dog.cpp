@@ -6,15 +6,16 @@
 /*   By: rertzer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:47:19 by rertzer           #+#    #+#             */
-/*   Updated: 2023/05/06 11:49:50 by rertzer          ###   ########.fr       */
+/*   Updated: 2023/05/06 10:57:13 by rertzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog(void): Animal("dog")
+Dog::Dog(void)
 {
 	std::cout << "Dog default constructor called\n";
+	cortex = new Brain();
 }
 
 Dog::Dog(const Dog & src)
@@ -26,6 +27,7 @@ Dog::Dog(const Dog & src)
 Dog::~Dog(void)
 {
 	std::cout << "Dog destructor called\n";
+	delete cortex;
 }
 
 Dog	& Dog::operator=(Dog const & rhs)
@@ -34,6 +36,7 @@ Dog	& Dog::operator=(Dog const & rhs)
 	if (this != &rhs)
 	{
 		type = rhs.type;
+		cortex = new Brain(*rhs.cortex);
 	}
 	return (*this);
 }
@@ -41,4 +44,9 @@ Dog	& Dog::operator=(Dog const & rhs)
 void	Dog::makeSound(void) const
 {
 	std::cout << "Ouaff! Ouaff!\n";
+}
+
+Brain	*Dog::getBrain(void) const
+{
+	return cortex;
 }

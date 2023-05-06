@@ -6,7 +6,7 @@
 /*   By: rertzer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:12:09 by rertzer           #+#    #+#             */
-/*   Updated: 2023/05/06 12:02:08 by rertzer          ###   ########.fr       */
+/*   Updated: 2023/05/06 11:30:25 by rertzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,8 @@ int main()
 		std::cout << std::endl;
 	}
 
-	std::string	sentence;
-
 	const Cat*	kitty = new Cat();
-	sentence = "I am a cute " + kitty->getType();
-	kitty->getBrain()->learning(sentence);
+	kitty->getBrain()->learning("I am a cute cat!");
 
 	std::cout << std::endl;
 	const Cat* pussy = new Cat(*kitty);
@@ -70,9 +67,10 @@ int main()
 	delete kitty;
 	delete pussy;
 
+
+
 	const Dog*	tailor = new Dog();
-	sentence = "I am a brave " + tailor->getType();
-	tailor->getBrain()->learning(sentence);
+	tailor->getBrain()->learning("I am a brave dog!");
 
 	std::cout << std::endl;
 	const Dog* barker = new Dog(*tailor);

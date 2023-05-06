@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rertzer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:47:19 by rertzer           #+#    #+#             */
-/*   Updated: 2023/05/06 11:49:50 by rertzer          ###   ########.fr       */
+/*   Updated: 2023/05/04 14:22:52 by rertzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Animal.hpp"
 
-Dog::Dog(void): Animal("dog")
+Animal::Animal(void)
 {
-	std::cout << "Dog default constructor called\n";
+	std::cout << "Animal default constructor called\n";
 }
 
-Dog::Dog(const Dog & src)
+Animal::Animal(const Animal & src)
 {
-	std::cout << "Dog copy constructor called\n";
+	std::cout << "Animal copy constructor called\n";
 	*this = src;
 }
 
-Dog::~Dog(void)
+Animal::~Animal(void)
 {
-	std::cout << "Dog destructor called\n";
+	std::cout << "Animal destructor called\n";
 }
 
-Dog	& Dog::operator=(Dog const & rhs)
+Animal	& Animal::operator=(Animal const & rhs)
 {
-	std::cout << "Dog assignment operator called\n";
+	std::cout << "Animal assignment operator called\n";
 	if (this != &rhs)
 	{
 		type = rhs.type;
@@ -38,7 +38,12 @@ Dog	& Dog::operator=(Dog const & rhs)
 	return (*this);
 }
 
-void	Dog::makeSound(void) const
+std::string	Animal::getType(void) const
 {
-	std::cout << "Ouaff! Ouaff!\n";
+	return type;
+}
+
+void	Animal::makeSound(void) const
+{
+	std::cout << "The sound of silence\n";
 }

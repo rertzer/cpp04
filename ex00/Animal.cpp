@@ -6,7 +6,7 @@
 /*   By: rertzer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:47:19 by rertzer           #+#    #+#             */
-/*   Updated: 2023/05/04 14:22:52 by rertzer          ###   ########.fr       */
+/*   Updated: 2023/05/06 11:48:20 by rertzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,13 @@ Animal::Animal(void)
 {
 	std::cout << "Animal default constructor called\n";
 }
+
+Animal::Animal(const std::string tp)
+{
+	std::cout << "Animal constructor called\n";
+	type = tp;
+}
+
 
 Animal::Animal(const Animal & src)
 {

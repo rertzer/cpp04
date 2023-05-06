@@ -6,7 +6,7 @@
 /*   By: rertzer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:43:35 by rertzer           #+#    #+#             */
-/*   Updated: 2023/05/06 09:14:26 by rertzer          ###   ########.fr       */
+/*   Updated: 2023/05/06 11:50:57 by rertzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class	WrongAnimal
 {
 	public:
 		WrongAnimal(void);
+		WrongAnimal(const std::string tp);
 		WrongAnimal(const WrongAnimal& an);
 		virtual ~WrongAnimal(void);
 

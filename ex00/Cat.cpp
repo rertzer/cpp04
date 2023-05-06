@@ -6,13 +6,13 @@
 /*   By: rertzer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:47:19 by rertzer           #+#    #+#             */
-/*   Updated: 2023/05/04 14:24:25 by rertzer          ###   ########.fr       */
+/*   Updated: 2023/05/06 11:49:21 by rertzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat(void)
+Cat::Cat(void): Animal("cat")
 {
 	std::cout << "Cat default constructor called\n";
 }

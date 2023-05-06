@@ -6,7 +6,7 @@
 /*   By: rertzer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:34:40 by rertzer           #+#    #+#             */
-/*   Updated: 2023/05/06 10:42:52 by rertzer          ###   ########.fr       */
+/*   Updated: 2023/05/06 11:54:45 by rertzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class	Animal
 {
 	public:
 		Animal(void);
+		Animal(const std::string tp);
 		Animal(const Animal& an);
 		virtual ~Animal(void);
 
