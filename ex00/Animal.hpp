@@ -6,7 +6,7 @@
 /*   By: rertzer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:34:40 by rertzer           #+#    #+#             */
-/*   Updated: 2023/05/04 14:21:30 by rertzer          ###   ########.fr       */
+/*   Updated: 2023/05/06 09:12:29 by rertzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class	Animal
 	public:
 		Animal(void);
 		Animal(const Animal& an);
-		~Animal(void);
+		virtual ~Animal(void);
 
 		Animal 			& operator=(const Animal & rhs);
 		

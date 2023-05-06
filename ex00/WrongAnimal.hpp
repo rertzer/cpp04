@@ -6,12 +6,12 @@
 /*   By: rertzer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:43:35 by rertzer           #+#    #+#             */
-/*   Updated: 2023/05/04 14:21:46 by rertzer          ###   ########.fr       */
+/*   Updated: 2023/05/06 09:14:26 by rertzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
 #include <iostream>
 
@@ -20,7 +20,7 @@ class	WrongAnimal
 	public:
 		WrongAnimal(void);
 		WrongAnimal(const WrongAnimal& an);
-		~WrongAnimal(void);
+		virtual ~WrongAnimal(void);
 
 		WrongAnimal & operator=(const WrongAnimal & rhs);
 
