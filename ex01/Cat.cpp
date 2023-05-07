@@ -12,16 +12,17 @@
 
 #include "Cat.hpp"
 
-Cat::Cat(void): Animal("cat")
+Cat::Cat(void): Animal("Cat")
 {
 	std::cout << "Cat default constructor called\n";
 	cortex = new Brain();
 }
 
-Cat::Cat(const Cat & src)
+Cat::Cat(const Cat & src): Animal()
 {
 	std::cout << "Cat copy constructor called\n";
-	*this = src;
+	type = src.type;
+	cortex = new Brain(*src.cortex);
 }
 
 Cat::~Cat(void)
@@ -36,6 +37,8 @@ Cat	& Cat::operator=(Cat const & rhs)
 	if (this != &rhs)
 	{
 		type = rhs.type;
+		if (cortex)
+			delete cortex;
 		cortex = new Brain(*rhs.cortex);
 	}
 	return (*this);

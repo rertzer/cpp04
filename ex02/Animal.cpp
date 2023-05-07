@@ -17,6 +17,12 @@ Animal::Animal(void)
 	std::cout << "Animal default constructor called\n";
 }
 
+Animal::Animal(const std::string tp)
+{
+	std::cout << "Animal constructor called\n";
+	type = tp;
+}
+
 Animal::Animal(const Animal & src)
 {
 	std::cout << "Animal copy constructor called\n";

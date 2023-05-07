@@ -23,7 +23,6 @@ Animal::Animal(const std::string tp)
 	type = tp;
 }
 
-
 Animal::Animal(const Animal & src)
 {
 	std::cout << "Animal copy constructor called\n";

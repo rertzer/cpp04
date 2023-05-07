@@ -94,5 +94,12 @@ int main()
 	std::cout << std::endl;
 	delete tailor;
 	delete barker;
-
+	
+/*
+	std::cout << "\nAnd now an unidentified animal\n";
+	const Animal*	hector = new Animal();
+	hector->makeSound();
+	hector->getBrain();
+	delete hector;
+*/
 }

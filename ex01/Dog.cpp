@@ -12,16 +12,17 @@
 
 #include "Dog.hpp"
 
-Dog::Dog(void): Animal("dog")
+Dog::Dog(void): Animal("Dog")
 {
 	std::cout << "Dog default constructor called\n";
 	cortex = new Brain();
 }
 
-Dog::Dog(const Dog & src)
+Dog::Dog(const Dog & src): Animal()
 {
 	std::cout << "Dog copy constructor called\n";
-	*this = src;
+	type = src.type;
+	cortex = new Brain(*src.cortex);
 }
 
 Dog::~Dog(void)
@@ -36,6 +37,8 @@ Dog	& Dog::operator=(Dog const & rhs)
 	if (this != &rhs)
 	{
 		type = rhs.type;
+		if (cortex)
+			delete cortex;
 		cortex = new Brain(*rhs.cortex);
 	}
 	return (*this);

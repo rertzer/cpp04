@@ -53,3 +53,9 @@ void	Animal::makeSound(void) const
 {
 	std::cout << "The sound of silence\n";
 }
+
+Brain	*Animal::getBrain(void) const
+{
+	std::cout << "Well, it's a no-brainer...\n";
+	return 0;
+}

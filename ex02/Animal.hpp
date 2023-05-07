@@ -20,6 +20,7 @@ class	Animal
 {
 	public:
 		Animal(void);
+		Animal(const std::string tp);
 		Animal(const Animal& an);
 		virtual ~Animal(void);
 
