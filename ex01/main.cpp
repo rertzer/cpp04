@@ -6,18 +6,19 @@
 /*   By: rertzer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:12:09 by rertzer           #+#    #+#             */
-/*   Updated: 2023/05/06 12:02:08 by rertzer          ###   ########.fr       */
+/*   Updated: 2023/05/11 10:17:33 by rertzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <sstream>
 #include "Cat.hpp"
 #include "Dog.hpp"
 
 int main()
 {
-	Animal	*zoo[42];
+	Animal	*zoo[12];
 
-	for (int i = 0; i < 42; i++)
+	for (int i = 0; i < 12; i++)
 	{
 		if (i % 2 == 0)
 		{
@@ -31,15 +32,17 @@ int main()
 			zoo[i]->getBrain()->learning("Bones taste good.");
 			zoo[i]->getBrain()->learning("Cats are morons.");
 		}
+		std::cout << "I am a " << zoo[i]->getType() << std::endl;
 		zoo[i]->getBrain()->thinking();
 		std::cout << std::endl;
 	}
 
-	for (int i = 0; i < 42; i++)
+	for (int i = 0; i < 12; i++)
 	{
 		delete zoo[i];
 		std::cout << std::endl;
 	}
+	std::cout << "-----------------------------------------------------------\n";
 
 	std::string	sentence;
 
@@ -56,6 +59,7 @@ int main()
 	std::cout << "Pussy:\n";
 	pussy->getBrain()->thinking();
 	
+	std::cout << std::endl;
 	kitty->getBrain()->learning("Pussy is my best friend.");
 	pussy->getBrain()->learning("Kitty is annoying.");
 	kitty->getBrain()->learning("I want to play with Pussy.");
@@ -68,8 +72,10 @@ int main()
 
 	std::cout << std::endl;
 	delete kitty;
+	std::cout << std::endl;
 	delete pussy;
 
+	std::cout << std::endl;
 	const Dog*	tailor = new Dog();
 	sentence = "I am a brave " + tailor->getType();
 	tailor->getBrain()->learning(sentence);
@@ -95,8 +101,28 @@ int main()
 
 	std::cout << std::endl;
 	delete tailor;
+	std::cout << std::endl;
 	delete barker;
+	
+	std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << "-----------------------------------------------------------\n";
+	std::cout << "\nA clever Dog\n";
+	Dog*	rantanplan = new Dog;
+	for (int i = 0; i < 120; i++)
+	{
+		std::ostringstream oss;
+	 	oss << "Clever idea number " << i;
+		rantanplan->getBrain()->learning(oss.str());
+	}
+	std::cout << std::endl;
+	rantanplan->getBrain()->thinking();
+	std::cout << std::endl;
+	delete rantanplan;
 
+	std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << "-----------------------------------------------------------\n";
 	std::cout << "\nAnd now an unidentified animal\n";
 	const Animal*	hector = new Animal();
 	hector->makeSound();

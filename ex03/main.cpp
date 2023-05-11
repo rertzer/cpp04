@@ -6,7 +6,7 @@
 /*   By: rertzer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 17:06:33 by rertzer           #+#    #+#             */
-/*   Updated: 2023/05/10 11:37:58 by rertzer          ###   ########.fr       */
+/*   Updated: 2023/05/11 10:41:46 by rertzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,30 +19,38 @@ int main()
 {
 
 	AMateria * tmp;
-	AMateria *	vault[99];
-	for (int i = 0; i < 99; i++)
-		vault[i] = NULL;
+	AMateria *	garbage;
 
 	std::cout << "Materia source\n";
 	IMateriaSource* src = new MateriaSource();
+	std::cout << std::endl;
 	src->learnMateria(new Ice());
+	std::cout << std::endl;
 	src->learnMateria(new Cure());
+	std::cout << std::endl;
 	src->learnMateria(new Ice());
+	std::cout << std::endl;
 	src->learnMateria(new Ice());
+	std::cout << std::endl;
 	src->learnMateria(new Cure());
+	std::cout << std::endl;
 	src->learnMateria(new Ice());
 
+	std::cout << std::endl;
 	MateriaSource*	src2 = new MateriaSource();
 	src2->learnMateria(new Ice());
+	std::cout << std::endl;
 	MateriaSource*	src3 = src2;
 
 	std::cout << "\nCharacter\n";
 	ICharacter* me = new Character("me");
+	std::cout << std::endl;
 	ICharacter* bob = new Character("bob");
+	std::cout << std::endl;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
-	vault[0] = src->createMateria("cure");
-	me->equip(vault[0]);
+	garbage = src->createMateria("cure");
+	me->equip(garbage);
 
 	tmp = src3->createMateria("ice");
 	me->equip(tmp);
@@ -57,12 +65,36 @@ int main()
 	me->use(2, *me);
 	me->use(5, *bob);
 	me->use(-42, *bob);
-	
+
+	std::cout << "\nFilling Bob's backpack\n";
+	tmp = src->createMateria("ice");
+	bob->equip(tmp);
+	tmp = src->createMateria("cure");
+	bob->equip(tmp);
+	tmp = src->createMateria("ice");
+	bob->equip(tmp);
+	tmp = src->createMateria("cure");
+	bob->equip(tmp);
+	tmp = src->createMateria("ice");
+	bob->equip(tmp);
+	tmp = src->createMateria("cure");
+	bob->equip(tmp);
+
+	std::cout << std::endl;
+	for (int i = -2; i < 6; i++)
+		bob->use(i, *me);
+
+	std::cout << std::endl;
+
 	std::cout << "\nDeleting...\n";
 	delete bob;
+	std::cout << std::endl;
 	delete me;
+	std::cout << std::endl;
 	delete src;
+	std::cout << std::endl;
 	delete src2;
-	delete vault[0];
+	std::cout << std::endl;
+	delete garbage;
 	return 0;
 }
